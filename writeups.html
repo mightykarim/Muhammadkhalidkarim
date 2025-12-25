@@ -1,46 +1,76 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Write-ups | Muhammad</title>
-  <meta name="description" content="Essays, guides, and technical write-ups on design, development, and learning." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Write-ups | {{ site.social.name | default: site.title }}</title>
+  <meta name="description" content="Technical writeups, essays, and notes." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/styles.css" />
-</head>
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/styles.css" />
+  <style>
+    .writeup-cover { width: 100%; height: 180px; object-fit: cover; border-radius: 12px; border: 1px solid var(--border); margin-bottom: 12px; background: #111827; }
+  </style>
+  </head>
 <body>
   <div class="page-shell">
     <header class="nav">
-      <div class="logo"><a href="index.html">Muhammad</a></div>
+      <div class="logo"><a href="{{ site.baseurl }}/">{{ site.social.name | default: site.title }}</a></div>
       <nav class="nav-links">
-        <a href="projects.html">Projects</a>
-        <a href="writeups.html">Write-ups</a>
-        <a href="index.html#about">About</a>
-        <a href="index.html#contact">Contact</a>
+        <a href="{{ site.baseurl }}/projects.html">Projects</a>
+        <a href="{{ site.baseurl }}/writeups.html">Write-ups</a>
+        <a href="{{ site.baseurl }}/#bio">Biography</a>
+        <a href="{{ site.baseurl }}/#contact">Contact</a>
       </nav>
-      <a class="pill" href="https://github.com/your-handle" target="_blank" rel="noreferrer">GitHub</a>
+      <a class="pill" href="https://github.com/{{ site.github.username }}" target="_blank" rel="noreferrer">GitHub</a>
     </header>
 
     <main>
       <section class="hero-minimal">
         <div class="hero-minimal__content">
-          <p class="eyebrow">Essays & Articles</p>
+          <p class="eyebrow">Essays & Notes</p>
           <h1>Write-ups</h1>
-          <p class="lede">Thoughts on design, development, learning, and building in public. Essays ranging from quick insights to deep dives.</p>
+          <p class="lede">Deep dives and practical notes on cloud, IAM, networking, and security. Fully rendered from Markdown with images.</p>
         </div>
       </section>
 
       <section class="section section--writeups">
         <div class="filter-bar">
           <button class="filter-btn active" data-filter="all">All</button>
-          <button class="filter-btn" data-filter="design">Design</button>
-          <button class="filter-btn" data-filter="development">Development</button>
-          <button class="filter-btn" data-filter="process">Process</button>
-          <button class="filter-btn" data-filter="learning">Learning</button>
+          {% assign tag_list = site.tags | sort %}
+          {% for tag in tag_list %}
+            {% assign tag_name = tag[0] %}
+            <button class="filter-btn" data-filter="{{ tag_name | downcase }}">{{ tag_name }}</button>
+          {% endfor %}
         </div>
-        <div class="writeups-grid" data-posts></div>
+        <div class="writeups-grid" id="writeupsGrid">
+          {% assign posts = site.posts %}
+          {% for post in posts %}
+          {% assign tags_lower = post.tags | join:',' | downcase %}
+          <article class="writeup-card" data-tags="{{ tags_lower }}">
+            <div class="writeup-card__meta">
+              <div class="writeup-card__date">{{ post.date | date: "%b %d, %Y" }}</div>
+              <div class="writeup-card__readtime">{{ post.content | number_of_words | divided_by:180 | ceil }} min read</div>
+            </div>
+            {% if post.cover %}
+              <img class="writeup-cover" src="{{ site.baseurl }}{{ post.cover }}" alt="Cover for {{ post.title }}" />
+            {% endif %}
+            <h3 class="writeup-card__title"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
+            <p class="writeup-card__summary">{{ post.excerpt | strip_html | truncate: 200 }}</p>
+            {% if post.tags %}
+            <div class="writeup-card__tags">
+              {% for t in post.tags %}
+              <span class="writeup-tag">{{ t }}</span>
+              {% endfor %}
+            </div>
+            {% endif %}
+            <a class="writeup-card__action" href="{{ site.baseurl }}{{ post.url }}">Read full writeup</a>
+          </article>
+          {% endfor %}
+        </div>
       </section>
 
       <section class="section section--cta">
@@ -49,7 +79,7 @@
             <h3>Want to collaborate?</h3>
             <p>Open to guest posts, writing partnerships, and creative collaborations on technical topics.</p>
           </div>
-          <a class="btn primary" href="index.html#contact">Let's chat</a>
+          <a class="btn primary" href="{{ site.baseurl }}/#contact">Let's chat</a>
         </div>
       </section>
     </main>
@@ -57,11 +87,11 @@
     <footer class="footer">
       <p>Built by Muhammad • Powered by GitHub Pages</p>
       <div class="footer__links">
-        <a href="index.html">Back to home</a>
-        <a href="projects.html">View Projects</a>
+        <a href="{{ site.baseurl }}/">Back to home</a>
+        <a href="{{ site.baseurl }}/projects.html">View Projects</a>
       </div>
     </footer>
   </div>
-  <script src="assets/js/writeups.js" defer></script>
+  <script src="{{ site.baseurl }}/assets/js/writeups.js" defer></script>
 </body>
 </html>
