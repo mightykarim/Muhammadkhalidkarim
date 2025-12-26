@@ -1,26 +1,29 @@
+---
+permalink: /projects.html
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projects | Muhammad</title>
-  <meta name="description" content="Browse all of Muhammad's projects, prototypes, and experiments." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projects | {{ site.social.name | default: site.title }}</title>
+  <meta name="description" content="Browse all projects, prototypes, and experiments." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/styles.css" />
 </head>
 <body>
   <div class="page-shell">
     <header class="nav">
-      <div class="logo"><a href="index.html">Muhammad</a></div>
+      <div class="logo"><a href="{{ site.baseurl }}/">{{ site.social.name | default: site.title }}</a></div>
       <nav class="nav-links">
-        <a href="projects.html">Projects</a>
-        <a href="writeups.html">Write-ups</a>
-        <a href="index.html#about">About</a>
-        <a href="index.html#contact">Contact</a>
+        <a href="{{ site.baseurl }}/projects.html">Projects</a>
+        <a href="{{ site.baseurl }}/writeups.html">Write-ups</a>
+        <a href="{{ site.baseurl }}/#bio">Biography</a>
+        <a href="{{ site.baseurl }}/#contact">Contact</a>
       </nav>
-      <a class="pill" href="https://github.com/your-handle" target="_blank" rel="noreferrer">GitHub</a>
+      <a class="pill" href="https://github.com/{{ site.github.username }}" target="_blank" rel="noreferrer">GitHub</a>
     </header>
 
     <main>
@@ -33,7 +36,32 @@
       </section>
 
       <section class="section section--projects">
-        <div class="projects-grid" data-projects></div>
+        <div class="cards">
+          {% for p in site.data.projects %}
+          <article class="card">
+            {% if p.image %}
+              <img class="card__image" src="{{ site.baseurl }}/{{ p.image }}" alt="{{ p.title }} screenshot" />
+            {% endif %}
+            <h3 class="card__title">{{ p.title }}</h3>
+            <p class="card__desc">{{ p.description }}</p>
+            {% if p.technologies %}
+            <div class="tags">
+              {% for t in p.technologies %}
+              <span class="tag">{{ t }}</span>
+              {% endfor %}
+            </div>
+            {% endif %}
+            <div class="card__footer">
+              <div class="card__links">
+                <a class="btn ghost" href="{{ p.repo }}" target="_blank" rel="noreferrer">View Repo</a>
+              </div>
+              {% if p.status %}
+              <span class="badge">{{ p.status }}</span>
+              {% endif %}
+            </div>
+          </article>
+          {% endfor %}
+        </div>
       </section>
 
       <section class="section section--cta">
@@ -42,7 +70,7 @@
             <h3>Have an idea?</h3>
             <p>I'm always interested in collaborating on creative projects and exploring new technologies.</p>
           </div>
-          <a class="btn primary" href="index.html#contact">Get in touch</a>
+          <a class="btn primary" href="{{ site.baseurl }}/#contact">Get in touch</a>
         </div>
       </section>
     </main>
@@ -50,11 +78,10 @@
     <footer class="footer">
       <p>Built by Muhammad • Powered by GitHub Pages</p>
       <div class="footer__links">
-        <a href="index.html">Back to home</a>
-        <a href="writeups.html">Read Write-ups</a>
+        <a href="{{ site.baseurl }}/">Back to home</a>
+        <a href="{{ site.baseurl }}/writeups.html">Read Write-ups</a>
       </div>
     </footer>
   </div>
-  <script src="assets/js/projects.js" defer></script>
 </body>
 </html>
