@@ -4,7 +4,7 @@ description: "Cybersecurity student exploring cloud security, networks, and secu
 lang: en
 timezone: Asia/Karachi
 
-url: "https://mightykareem.github.io"
+url: "https://mightykarim.github.io"
 baseurl: "/Muhammadkhalidkarim" # Set to '' if using a user/organization pages repo
 
 # theme: jekyll-theme-chirpy  # DISABLED - using custom layouts instead
@@ -15,12 +15,12 @@ include:
   - "_pages"
 
 github:
-  username: MightyKareem
+  username: mightyKarim
 
 social:
   name: "Muhammad"
   links:
-    - https://github.com/MightyKareem
+    - https://github.com/mightyKarim
     - https://www.linkedin.com/in/muhammad-karim-9464b7247
 
 email: "muhammadd.khalidkarim@gmail.com"
