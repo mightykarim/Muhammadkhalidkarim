@@ -7,10 +7,10 @@ timezone: Asia/Karachi
 url: "https://mightykareem.github.io"
 baseurl: "/Muhammadkhalidkarim" # Set to '' if using a user/organization pages repo
 
-theme: jekyll-theme-chirpy
+# theme: jekyll-theme-chirpy  # DISABLED - using custom layouts instead
 paginate: 10
 paginate_path: /page:num/
-permalink: /:year/:month/:day/:title/
+permalink: /writeups/:title/
 
 github:
   username: MightyKareem
@@ -24,10 +24,7 @@ social:
 email: "muhammadd.khalidkarim@gmail.com"
 
 plugins:
-  - jekyll-paginate
-  - jekyll-redirect-from
   - jekyll-seo-tag
-  - jekyll-archives
   - jekyll-sitemap
   - jekyll-feed
 
@@ -42,15 +39,6 @@ compress_html:
   blanklines: false
   ignore:
     envs: [development]
-
-jekyll-archives:
-  enabled: [categories, tags]
-  layouts:
-    category: category
-    tag: tag
-  permalinks:
-    tag: /tags/:name/
-    category: /categories/:name/
 
 exclude:
   - Gemfile.lock
