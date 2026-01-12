@@ -15,4 +15,12 @@
     "image": "assets/img/History_Chrome.png",
     "status": "Live"
   }
+    {
+    "title": "Remote-Health-Monitoring-System",
+    "description": "RMC2 is a console-based healthcare platform for managing patients, doctors, appointments, IoT sensor snapshots, and EHR updates.",
+    "technologies": ["C++", "OOP", "Encryption", "File Handling"],
+    "repo": "https://github.com/mightykareem/Remote-Health-Monitoring-System",
+    "image": "assets/img/main.png",
+    "status": "Live"
+  }
 ]
