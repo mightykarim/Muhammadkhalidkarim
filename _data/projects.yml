@@ -21,7 +21,7 @@
   description: >-
     RMC2 is a console-based healthcare platform for managing patients, doctors, appointments, 
     IoT sensor snapshots, and EHR updates.
-    technologies: [C++, OOP, Encryption, File Handling],
-    repo: https://github.com/mightykareem/Remote-Health-Monitoring-System,
-    image: assets/img/Main.png,
+    technologies: [C++, OOP, Encryption, File Handling]
+    repo: https://github.com/mightykareem/Remote-Health-Monitoring-System
+    image: assets/img/Main.png
     status: Live
