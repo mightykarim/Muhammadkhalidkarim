@@ -25,3 +25,13 @@
   repo: https://github.com/mightykareem/Remote-Health-Monitoring-System
   image: assets/img/Main.png
   status: Live
+
+- title: Garbage-Collection-System
+  description: >-
+    A smart waste management system for Islamabad using custom graph algorithms and data structures. 
+    This system optimizes garbage collection routes using Dijkstra's algorithm, provides live truck tracking,
+    and supports dynamic route replanning.
+  technologies: [C++, DSA, Dijkstra, File Handling]
+  repo: https://github.com/mightykareem/Garbage-Collection-System
+  image: assets/img/garbagehome.png
+  status: Live
