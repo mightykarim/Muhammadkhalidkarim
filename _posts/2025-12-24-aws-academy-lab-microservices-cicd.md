@@ -13,17 +13,17 @@ description: "Deep dive into AWS Academy lab on breaking down monolithic applica
 
 ## Scenario
 
-The owners of a cafÃ© corporation with many franchise locations have
+The owners of a café corporation with many franchise locations have
 noticed how popular their gourmet coffee offerings have become.
 >
-*Customers* (the cafÃ© franchise location managers) cannot seem to get
+*Customers* (the café franchise location managers) cannot seem to get
 enough of the high-quality coffee beans that are needed to create
-amazing cappuccinos and lattes in their cafÃ©s.
+amazing cappuccinos and lattes in their cafés.
 >
-Meanwhile, the *employees* in the cafÃ© corporate office have been
+Meanwhile, the *employees* in the café corporate office have been
 challenged to consistently source the highest-quality coffee beans.
 Recently, the leaders at the corporate office learned that one of
-their favorite coffee suppliers wants to sell her company. The cafÃ©
+their favorite coffee suppliers wants to sell her company. The café
 corporate managers jumped at the opportunity to buy the company. The
 acquired coffee supplier runs a coffee supplier listings application
 on an AWS account, as shown in the following image.
