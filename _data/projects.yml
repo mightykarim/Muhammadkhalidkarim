@@ -35,3 +35,14 @@
   repo: https://github.com/mightykareem/Garbage-Collection-System
   image: assets/img/garbagehome.png
   status: Live
+
+
+- title: Filmception
+  description: >-
+    A menu-driven NLP system that cleans movie summaries, predicts multi-label genres using machine learning, 
+    and converts summaries into audio. Supports multilingual text-to-speech (Arabic, Urdu, Korean) and genre 
+    classification trained on the CMU Movie Summary dataset.
+  technologies: [Python, AI]
+  repo: https://github.com/mightykareem/Filmception
+  image: assets/img/interface_filmception.png
+  status: Live
